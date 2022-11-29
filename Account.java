@@ -10,8 +10,8 @@ public class Account {
         }
     }    //Setting nalue of name and balance
     
-    public void withdraw(double withdrawAccount) {
-        if (withdrawAmout > balance) {
+    public void withdraw(double withdrawAmount) {
+        if (withdrawAmount > balance) {
             System.out.println("withdrawal amount exeeded balance");
             }
         }    //calculating withdrawal amount
