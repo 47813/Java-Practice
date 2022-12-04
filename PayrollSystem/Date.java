@@ -18,19 +18,10 @@ public class Date{
         this.day = day;
         this.year = year;   //Set value as each variable
         
-        System.out.printf("Date object contructor for date %s%n", this);    //Print outcome
     }
     
-    public void nextDay() { //A class which makes the date calculate as the next day
-        day += 1;
-        if (day > daysPerMonth [month]) {
-            day = 1;
-            month += 1;
-        }   //If day exeeds the maximum day of the month, then go to next month, and reset date as 1
-        
-        if (month > 12) {
-            month = 1;
-            year += 1;
-        }   //If month exeeds December, then go to next year, then reset to January
+    @Override
+    public String toString() {
+        return String.format("%d/%d/%d", month, day, year);
     }
 }
