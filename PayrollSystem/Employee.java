@@ -1,29 +1,34 @@
-public class Employee {
-    private String firstName;
-    private String lastName;
-    private String socialSecurityNumber;    //Input variables for saving employee information
+public abstract class Employee extends Date {
+    private final String firstName;
+    private final String lastName;
+    private final String socialSecurityNumber;
+    private final Date birthDate;   //Setting private variables
     
-    public Employee (String firstName, String lastName, String socialSecurityNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.socialSecurityNumber = socialSecurityNumber;   //Insert global variable to this class
-    }
-    
-    public String getFirstName() {
-        return firstName;   //Input get class which return fisrt name
-    }
-    
-    public String getLastName() {
-        return lastName;   //Input get class which return last name
-    }
-    
-    public String getSocialSecurityNumber() {
-        return socialSecurityNumber;   //Input get class which return social security number
-    }
-    
-    @Override
-    public String toString() {
-        return String.format("%s   %s%n%s   %s%n%s   %s","first name: ", getFirstName(), "last name: ",getLastName(), "social security number: ", getSocialSecurityNumber());   //Change the print method to print as the following format
-    
-    }
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.socialSecurityNumber = socialSecurityNumber;
+    this.birthDate = birthDate; //Getting the value from main class to this class
 }
+
+public String getFirstName() {
+    return firstName();
+}   //Giving firstName value
+
+public String getLastName() {
+    return lastName();
+}   //Giving lastName value
+
+public String getSocialSecurityNumber() {
+    return socialSecurityNumber();
+}   //Giving socialSecurityNumber value
+
+public Date getBirthDate() {
+    return birthDate();
+}   //Giving birthDate value
+
+@Override
+public String toString() {
+    return String.format("%s   %s%nSocial security number:   %s%nBirth date: %s", getFirstName(), getLastName(), getSocialSecurityNumber(), getBirthDate());
+}   //Setting print value to given form
+
+public abstract double earnings();  //Make an abstract class for earnings
